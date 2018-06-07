@@ -15,6 +15,27 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+ defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+        multiDexEnabled true
+        versionCode verCode
+        versionName APP_VERSION
+        resValue("string", 'app_version', APP_VERSION)
+        buildConfigField "boolean", "LEO_DEBUG", "true"
+        signingConfig signingConfigs.signingConfig
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+           }
+        debug {
+           
+        }
+    }
+
 
 allprojects {
     repositories {
